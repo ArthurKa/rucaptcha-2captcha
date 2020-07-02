@@ -1,0 +1,34 @@
+{
+  "name": "rucaptcha-2captcha",
+  "version": "1.0.0",
+  "description": "Operates with RuCaptcha.com and 2Captcha.com conveniently.",
+  "main": "ruCaptcha2Captcha.js",
+  "scripts": {},
+  "keywords": [
+    "captcha",
+    "anti-captcha",
+    "anticaptcha",
+    "rucaptcha",
+    "2captcha",
+    "solve",
+    "solver",
+    "captcha-solver",
+    "nocaptcha",
+    "recaptcha",
+    "recaptcha2",
+    "recaptchav2",
+    "recaptcha3",
+    "recaptchav3",
+    "geetest",
+    "hcaptcha",
+    "capy-puzzle",
+    "rotatecaptcha",
+    "funcaptcha",
+    "keycaptcha"
+  ],
+  "author": "ArthurKa",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
