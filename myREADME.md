@@ -12,14 +12,16 @@ Full documentation you can find on [https://rucaptcha.com/api-rucaptcha](https:/
 const RuCaptcha2Captcha = require('.');
 
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>);
-// or new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha') for operating with 2Captcha.com
+// or for operating with 2Captcha.com
+const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
 
 ```
 **<YOUR_API_KEY>** you can find in your account settings ([RuCaptcha](https://rucaptcha.com/setting) | [2Captcha](https://2captcha.com/setting))
 
 ### captchaSolver.send method
 
-Use this method to send captcha for solve. Returns `Promise<capthca_id>`. For example:
+Use this method to send captcha for solve. Returns `Promise<capthca_id>`.\
+For example:
 ```js
 const id = await captchaSolver.send({
   method: 'base64',
@@ -31,7 +33,8 @@ const id = await captchaSolver.send({
 
 ### captchaSolver.sendFile method
 
-Use this method to send captcha as image from your file system. Returns `Promise<capthca_id>`. For example:
+Use this method to send captcha as image from your local file system. Returns `Promise<capthca_id>`.\
+For example:
 ```js
 const id = await captchaSolver.sendFile('./captcha.jpg', {
   min_len: 6,
@@ -45,11 +48,10 @@ const id = await captchaSolver.sendFile('./captcha.jpg', {
 
 ### captchaSolver.get method
 
-Method for getting captcha answers. Returns `Promise<captcha_token>` or `Promise<Array<captcha_token>>` which resolves as soon as captcha(s) will be solved on service.
+Method for getting captcha solutions. Returns `Promise<captcha_token>` or `Promise<Array<captcha_token>>` which resolves as soon as captcha(s) will be solved on service.
 ```js
   const token = await catpchaSolver.get(id);
   // token: 'ABCD'
-
 
   // or
   const tokens = await catpchaSolver.get([id1, id2, ...]);
@@ -62,7 +64,7 @@ Method for getting captcha answers. Returns `Promise<captcha_token>` or `Promise
 
 ### captchaSolver.reportGood and captchaSolver.reportBad methods
 
-Use these methods for reporting captcha results. It's not necessary but better to send reports cause of refund of bad solves and increasing solving accuracy by reporting good solves.
+Use these methods for reporting captcha results. It's not necessary but better to send reports cause of refund of bad solutions and increasing solving accuracy by reporting good solutions.
 ```js
   const result = await catpchaSolver.reportGood(id);
   // or
@@ -72,7 +74,7 @@ Use these methods for reporting captcha results. It's not necessary but better t
 
 ### captchaSolver.get2 method
 
-Use captchaSolver.get2 method for getting captcha answer with its price. Returns `Promise<captcha_token>`.
+Use captchaSolver.get2 method for getting captcha answer with its cost price. Returns `Promise<Object>`.
 ```js
   const info = await catpchaSolver.get2(id);
   // info: { request: '6p6pck', price: '0.034' }
@@ -85,7 +87,7 @@ Use for getting your account balance.
   const balance = await catpchaSolver.getBalance();
   // balance: 50.034
 ```
-Note: don't use it too often because it decreases your query limit to RuCaptcha (2Captcha) server.
+Note: don't use it too often because it decreases your query limit to **RuCaptcha** (**2Captcha**) server.
 
 ---
 
