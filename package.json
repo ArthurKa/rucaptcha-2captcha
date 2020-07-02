@@ -1,9 +1,13 @@
 {
   "name": "rucaptcha-2captcha",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Operates with RuCaptcha.com and 2Captcha.com conveniently.",
   "main": "ruCaptcha2Captcha.js",
   "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurKa/rucaptcha-2captcha.git"
+  },
   "keywords": [
     "captcha",
     "anti-captcha",
@@ -28,6 +32,10 @@
   ],
   "author": "ArthurKa",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurKa/rucaptcha-2captcha/issues"
+  },
+  "homepage": "https://github.com/ArthurKa/rucaptcha-2captcha#readme",
   "dependencies": {
     "axios": "^0.19.2"
   }

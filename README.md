@@ -1,10 +1,10 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.1?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.1")](https://libraries.io/npm/rucaptcha-2captcha/1.0.1)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.1?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.1")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.1)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.1-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.1)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.1?label=size 'Install size of rucaptcha-2captcha@1.0.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.1)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.2?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.2")](https://libraries.io/npm/rucaptcha-2captcha/1.0.2)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.2?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.2")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.2)
+[![NPM-version](https://img.shields.io/badge/npm-v1.0.2-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.2)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.2?label=size 'Install size of rucaptcha-2captcha@1.0.2')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.2)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 
-# rucaptcha-2captcha@1.0.1
+# rucaptcha-2captcha@1.0.2
 
 Helps you to operate with [RuCaptcha](https://rucaptcha.com) or [2Captcha](https://2captcha.com) conveniently.
 
@@ -13,7 +13,7 @@ Full documentation you can find on [https://rucaptcha.com/api-rucaptcha](https:/
 ## Installation
 `rucaptcha-2captcha` is available via npm:
 ``` bash
-$ npm i rucaptcha-2captcha@1.0.1
+$ npm i rucaptcha-2captcha@1.0.2
 ```
 
 ## Usage
