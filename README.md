@@ -1,10 +1,10 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.3?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.3")](https://libraries.io/npm/rucaptcha-2captcha/1.0.3)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.3?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.3")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.3)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.3-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.3)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.3?label=size 'Install size of rucaptcha-2captcha@1.0.3')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.3)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.4?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.4")](https://libraries.io/npm/rucaptcha-2captcha/1.0.4)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.4?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.4")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.4)
+[![NPM-version](https://img.shields.io/badge/npm-v1.0.4-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.4)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.4?label=size 'Install size of rucaptcha-2captcha@1.0.4')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.4)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 
-# rucaptcha-2captcha@1.0.3
+# rucaptcha-2captcha@1.0.4
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -13,19 +13,19 @@ Full documentation you can find on official sites: [RuCaptcha][RuCaptchaAPI], [2
 ## Installation
 `rucaptcha-2captcha` is available via npm:
 ``` bash
-$ npm i rucaptcha-2captcha@1.0.3
+$ npm i rucaptcha-2captcha@1.0.4
 ```
 
 ## Usage
 ### Initialization
 #### Synopsis
 
-new RuCaptcha2Captcha(apiKey[, type]) → captchaSolver object
+new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 
 | Parameter | Type   | Required | Description
 |-----------|--------|----------|-
 | apiKey    | string | true     | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings])
-| type      | string | false    | Case insensitive **'2captcha'** for [2Captcha]. Any other for [RuCaptcha].
+| type      | string | false    | Case insensitive **'2captcha'** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
 ```js
@@ -45,7 +45,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 
 | Parameter | Type   | Required | Description
 |-----------|--------|----------|-
-| params    | object | true     | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]) except `key`, `json` and `soft_id`
+| params    | object | true     | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `key`, `json` and `soft_id`.
 
 Use this method to send captcha for solve.
 
@@ -54,7 +54,7 @@ Use this method to send captcha for solve.
 const id = await captchaSolver.send({
   method: 'base64',
   body: <base64_image_body>,
-  // any other parameter from API
+  // any other parameter from documentation
   // except: key, json and soft_id
 });
 
@@ -69,7 +69,7 @@ captchaSolver.sendFile(filePath[, params]) → `Promise<captcha_id>`
 | Parameter | Type   | Required | Description
 |-----------|--------|----------|-
 | filePath  | string | true     | Path to captcha image on your file system
-| params    | object | false    | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]) except `method`, `file`, `body`, `key`, `json` and `soft_id`
+| params    | object | false    | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `method`, `file`, `body`, `key`, `json` and `soft_id`.
 
 Use this method to send captcha as image from your local file system.
 
@@ -80,7 +80,7 @@ const id = await captchaSolver.sendFile('./captcha.jpg', {
   max_len: 6,
   regsense: 1,
   numeric: 4,
-  // any other parameter from API
+  // any other parameter from documentation
   // except: method, file, body, key, json and soft_id
 });
 
@@ -94,37 +94,39 @@ captchaSolver.get(id | ids | strIds) → `Promise<captcha_token>` | `Promise<Arr
 
 | Parameter | Type      | Required   | Description
 |-----------|-----------|------------|-
-| id        | string    | one of all | Captcha id, sent for solution
+| id        | string    | one of all | Id of sent captcha, which you get from send-method
 | ids       | Array<id> | one of all | Array of captcha ids
 | strIds    | string    | one of all | String of comma separated captcha ids
 
-Method for getting captcha solutions. Returns promise which resolves as soon as captcha (all captchas) will be solved on service.
+Method for getting captcha solutions.\
+Returns promise which resolves as soon as all captchas by provided ids will be solved on service.
 
 #### Example
 ```js
   const token = await captchaSolver.get(id);
-  // token: 'ABCD'
+  // token: 'pgh3Ds'
 
   // or
   const tokens = await captchaSolver.get([id1, id2, ...]);
-  // tokens: ['ABCD', 'abcd', ...]
+  // tokens: ['3kK3gS', 'q5ZZpt', ...]
 
   // or
   const tokens = await captchaSolver.get('<id1>,<id2>,...');
-  // tokens: ['ABCD', 'abcd', ...]
+  // tokens: ['3kK3gS', 'q5ZZpt', ...]
 ```
 
 ### Solution reporting methods
 #### Synopsis
 
-captchaSolver.reportGood(id) →`Promise<Object>`\
-captchaSolver.reportBad(id) →`Promise<Object>`
+captchaSolver.reportGood(id) → `Promise<Object>`\
+captchaSolver.reportBad(id) → `Promise<Object>`
 
 | Parameter | Type   | Required | Description
 |-----------|--------|----------|-
-| id        | string | true     | Captcha id, sent for solution
+| id        | string | true     | Id of sent captcha, which you get from send-method
 
-Use these methods for reporting captcha results.\
+Use these methods for reporting captcha results.
+
 **Attention!** It's not necessary but better to send reports cause of refund of bad solutions and increasing solving accuracy by reporting good solutions.\
 Returns some info that was sent from server.
 
@@ -143,7 +145,7 @@ captchaSolver.get2(id) → `Promise<Object>`
 
 | Parameter | Type   | Required | Description
 |-----------|--------|----------|-
-| id        | string | true     | Captcha id, sent for solution
+| id        | string | true     | Id of sent captcha, which you get from send-method
 
 Use captchaSolver.get2 method for getting captcha answer with its cost price.
 
