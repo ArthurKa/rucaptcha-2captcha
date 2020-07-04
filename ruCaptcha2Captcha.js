@@ -6,23 +6,27 @@ const axios = require('axios');
 const wait = s => new Promise(res => setTimeout(res, s * 1000));
 
 function throwErrorOfBadStatus(status, data) {
-  if(!status) {
+  if(!status && data.request !== 'CAPCHA_NOT_READY') {
     const e = new Error(data.error_text);
     e.name = data.request;
     throw e;
   }
 }
 
-module.exports = function(key, twoCaptcha = '') {
+function RuCaptcha2Captcha(key, twoCaptcha = '') {
+  if(!new.target) {
+    return new RuCaptcha2Captcha(key, twoCaptcha);
+  }
+
   const ruOr2 = String(twoCaptcha).toLowerCase().trim() === '2captcha' ? 2 : 'ru';
   const sendUrl = `https://${ruOr2}captcha.com/in.php`;
   const getUrl = `https://${ruOr2}captcha.com/res.php`;
 
   const waits = {};
 
-  this.send = async (p = {}) => {
+  this.send = async parameters => {
     const params = {
-      ...p,
+      ...parameters,
       key,
       json: 1,
       soft_id: 2721,
@@ -33,7 +37,7 @@ module.exports = function(key, twoCaptcha = '') {
     const { request: id } = data;
 
     const method = (params.method || '').toLowerCase();
-    const timeToWaitInSeconds = ['post', 'base64'].includes(method) && params.recaptcha == null && params.coordinatescaptcha == null
+    const timeToWaitInSeconds = ['post', 'base64', ''].includes(method) && params.recaptcha == null && params.coordinatescaptcha == null
       ? 5
       : 20;
     waits[id] = wait(timeToWaitInSeconds);
@@ -41,8 +45,8 @@ module.exports = function(key, twoCaptcha = '') {
     return data;
   };
 
-  this.sendFile = (file, params = {}) => {
-    const body = fs.readFileSync(file).toString('base64');
+  this.sendFile = (filePath, { file, ...params } = {}) => {
+    const body = fs.readFileSync(filePath).toString('base64');
 
     return this.send({
       ...params,
@@ -131,7 +135,6 @@ module.exports = function(key, twoCaptcha = '') {
         }
         throw e;
       }
-
     };
   };
 
@@ -149,3 +152,5 @@ module.exports = function(key, twoCaptcha = '') {
     return data;
   };
 };
+
+module.exports = RuCaptcha2Captcha;

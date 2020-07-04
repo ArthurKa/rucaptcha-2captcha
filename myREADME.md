@@ -1,100 +1,175 @@
 <header>
 
-Helps you to operate with [RuCaptcha](https://rucaptcha.com) or [2Captcha](https://2captcha.com) conveniently.
+Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
-Full documentation you can find on [https://rucaptcha.com/api-rucaptcha](https://rucaptcha.com/api-rucaptcha) and [https://2captcha.com/2captcha-api](https://2captcha.com/2captcha-api) respectively.
+Full documentation you can find on official sites: [RuCaptcha][RuCaptchaAPI], [2Captcha][2CaptchaAPI].
 
 <installation>
 
 ## Usage
 ### Initialization
+#### Synopsis
+
+new RuCaptcha2Captcha(apiKey[, type]) → captchaSolver object
+
+| Parameter | Type   | Required | Description
+|-----------|--------|----------|-
+| apiKey    | string | true     | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings])
+| type      | string | false    | Case insensitive **'2captcha'** for [2Captcha]. Any other for [RuCaptcha].
+
+#### Example
 ```js
 const RuCaptcha2Captcha = require('.');
 
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>);
+
 // or for operating with 2Captcha.com
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
 
 ```
-**<YOUR_API_KEY>** you can find in your account settings ([RuCaptcha](https://rucaptcha.com/setting) | [2Captcha](https://2captcha.com/setting))
 
 ### captchaSolver.send method
+#### Synopsis
 
-Use this method to send captcha for solve. Returns `Promise<capthca_id>`.\
-For example:
+captchaSolver.send(params) → `Promise<captcha_id>`
+
+| Parameter | Type   | Required | Description
+|-----------|--------|----------|-
+| params    | object | true     | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]) except `key`, `json` and `soft_id`
+
+Use this method to send captcha for solve.
+
+#### Example
 ```js
 const id = await captchaSolver.send({
   method: 'base64',
   body: <base64_image_body>,
+  // any other parameter from API
+  // except: key, json and soft_id
 });
 
 // id: '4503599627'
 ```
 
-### captchaSolver.sendFile method
+### captchaSolver.sendFile custom method over captchaSolver.send
+#### Synopsis
 
-Use this method to send captcha as image from your local file system. Returns `Promise<capthca_id>`.\
-For example:
+captchaSolver.sendFile(filePath[, params]) → `Promise<captcha_id>`
+
+| Parameter | Type   | Required | Description
+|-----------|--------|----------|-
+| filePath  | string | true     | Path to captcha image on your file system
+| params    | object | false    | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]) except `method`, `file`, `body`, `key`, `json` and `soft_id`
+
+Use this method to send captcha as image from your local file system.
+
+#### Example
 ```js
 const id = await captchaSolver.sendFile('./captcha.jpg', {
   min_len: 6,
   max_len: 6,
   regsense: 1,
   numeric: 4,
+  // any other parameter from API
+  // except: method, file, body, key, json and soft_id
 });
 
 // id: '4503599627'
 ```
 
 ### captchaSolver.get method
+#### Synopsis
 
-Method for getting captcha solutions. Returns `Promise<captcha_token>` or `Promise<Array<captcha_token>>` which resolves as soon as captcha(s) will be solved on service.
+captchaSolver.get(id | ids | strIds) → `Promise<captcha_token>` | `Promise<Array<captcha_token>>`
+
+| Parameter | Type      | Required   | Description
+|-----------|-----------|------------|-
+| id        | string    | one of all | Captcha id, sent for solution
+| ids       | Array<id> | one of all | Array of captcha ids
+| strIds    | string    | one of all | String of comma separated captcha ids
+
+Method for getting captcha solutions. Returns promise which resolves as soon as captcha (all captchas) will be solved on service.
+
+#### Example
 ```js
-  const token = await catpchaSolver.get(id);
+  const token = await captchaSolver.get(id);
   // token: 'ABCD'
 
   // or
-  const tokens = await catpchaSolver.get([id1, id2, ...]);
+  const tokens = await captchaSolver.get([id1, id2, ...]);
   // tokens: ['ABCD', 'abcd', ...]
 
   // or
-  const tokens = await catpchaSolver.get('<id1>,<id2>,...');
+  const tokens = await captchaSolver.get('<id1>,<id2>,...');
   // tokens: ['ABCD', 'abcd', ...]
 ```
 
-### captchaSolver.reportGood and captchaSolver.reportBad methods
+### Solution reporting methods
+#### Synopsis
 
-Use these methods for reporting captcha results. It's not necessary but better to send reports cause of refund of bad solutions and increasing solving accuracy by reporting good solutions.
+captchaSolver.reportGood(id) →`Promise<Object>`\
+captchaSolver.reportBad(id) →`Promise<Object>`
+
+| Parameter | Type   | Required | Description
+|-----------|--------|----------|-
+| id        | string | true     | Captcha id, sent for solution
+
+Use these methods for reporting captcha results.\
+**Attention!** It's not necessary but better to send reports cause of refund of bad solutions and increasing solving accuracy by reporting good solutions.\
+Returns some info that was sent from server.
+
+#### Example
 ```js
-  const result = await catpchaSolver.reportGood(id);
+  const result = await captchaSolver.reportGood(id);
   // or
-  const result = await catpchaSolver.reportBad(id);
+  const result = await captchaSolver.reportBad(id);
   // result: { status: 1, request: 'OK_REPORT_RECORDED' }
 ```
 
 ### captchaSolver.get2 method
+#### Synopsis
 
-Use captchaSolver.get2 method for getting captcha answer with its cost price. Returns `Promise<Object>`.
+captchaSolver.get2(id) → `Promise<Object>`
+
+| Parameter | Type   | Required | Description
+|-----------|--------|----------|-
+| id        | string | true     | Captcha id, sent for solution
+
+Use captchaSolver.get2 method for getting captcha answer with its cost price.
+
+#### Example
 ```js
-  const info = await catpchaSolver.get2(id);
+  const info = await captchaSolver.get2(id);
   // info: { request: '6p6pck', price: '0.034' }
 ```
 
 ### captchaSolver.getBalance method
+#### Synopsis
 
-Use for getting your account balance.
+captchaSolver.captchaSolver.getBalance() → `Promise<number>`
+
+Use for getting your account balance.\
+Note: don't use it too often because it decreases your API query limit.
+
+#### Example
 ```js
-  const balance = await catpchaSolver.getBalance();
+  const balance = await captchaSolver.getBalance();
   // balance: 50.034
 ```
-Note: don't use it too often because it decreases your query limit to **RuCaptcha** (**2Captcha**) server.
 
 ---
 
-Note that **json**, **key** and **soft_id** are not writable parameters of any method.
-
-More info you can find in documentation ([RuCaptcha](https://rucaptcha.com/api-rucaptcha) | [2Captcha](https://2captcha.com/2captcha-api)).
+More info you can find in documentation ([RuCaptcha][RuCaptchaAPI] | [2Captcha][2CaptchaAPI]).
 
 <noTesting>
 
 <suggestions>
+
+[RuCaptcha]: https://rucaptcha.com
+[2Captcha]: https://2captcha.com
+[RuCaptchaAPI]: https://rucaptcha.com/api-rucaptcha
+[2CaptchaAPI]: https://2captcha.com/2captcha-api
+[RuCaptchaSettings]: https://rucaptcha.com/setting
+[2CaptchaSettings]: https://2captcha.com/setting
+[RuCaptchaParams]: https://rucaptcha.com/api-rucaptcha#normal_post
+[2CaptchaParams]: https://2captcha.com/2captcha-api#normal_post
