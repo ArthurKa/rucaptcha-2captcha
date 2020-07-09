@@ -1,6 +1,6 @@
 {
   "name": "rucaptcha-2captcha",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Operates with RuCaptcha.com and 2Captcha.com services conveniently.",
   "main": "ruCaptcha2Captcha.js",
   "scripts": {},

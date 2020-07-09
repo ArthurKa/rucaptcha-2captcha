@@ -1,10 +1,10 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.4?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.4")](https://libraries.io/npm/rucaptcha-2captcha/1.0.4)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.4?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.4")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.4)
-[![NPM-version](https://img.shields.io/badge/npm-v1.0.4-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.4)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.4?label=size 'Install size of rucaptcha-2captcha@1.0.4')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.4)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/1.0.5?style=flat-square "All dependencies of rucaptcha-2captcha@1.0.5")](https://libraries.io/npm/rucaptcha-2captcha/1.0.5)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@1.0.5?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@1.0.5")](https://snyk.io/test/npm/rucaptcha-2captcha/1.0.5)
+[![NPM-version](https://img.shields.io/badge/npm-v1.0.5-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/1.0.5)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@1.0.5?label=size 'Install size of rucaptcha-2captcha@1.0.5')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@1.0.5)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 
-# rucaptcha-2captcha@1.0.4
+# rucaptcha-2captcha@1.0.5
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -13,7 +13,7 @@ Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI
 ## Installation
 `rucaptcha-2captcha` is available via npm:
 ``` bash
-$ npm i rucaptcha-2captcha@1.0.4
+$ npm i rucaptcha-2captcha@1.0.5
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
 ### captchaSolver.send method
 #### Synopsis
 
-captchaSolver.send(params) → `Promise<captcha_id>`
+captchaSolver.send(params) → `Promise<Object { request: String<captcha_id> }>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
@@ -64,7 +64,7 @@ const id = await captchaSolver.send({
 ### captchaSolver.sendFile custom method over captchaSolver.send
 #### Synopsis
 
-captchaSolver.sendFile(filePath[, params]) → `Promise<captcha_id>`
+captchaSolver.sendFile(filePath[, params]) → `Promise<Object { request: String<captcha_id> }>`
 
 | Name     | Type   | Required | Description
 |----------|--------|----------|-

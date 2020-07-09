@@ -31,7 +31,7 @@ const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
 ### captchaSolver.send method
 #### Synopsis
 
-captchaSolver.send(params) → `Promise<captcha_id>`
+captchaSolver.send(params) → `Promise<Object { request: String<captcha_id> }>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
@@ -54,7 +54,7 @@ const id = await captchaSolver.send({
 ### captchaSolver.sendFile custom method over captchaSolver.send
 #### Synopsis
 
-captchaSolver.sendFile(filePath[, params]) → `Promise<captcha_id>`
+captchaSolver.sendFile(filePath[, params]) → `Promise<Object { request: String<captcha_id> }>`
 
 | Name     | Type   | Required | Description
 |----------|--------|----------|-
