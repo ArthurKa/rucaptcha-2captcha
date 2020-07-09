@@ -118,24 +118,22 @@ function RuCaptcha2Captcha(key, twoCaptcha = '') {
   };
 
   const makeReport = type => {
-    return async id => {
-      try {
-        const { data } = await axios.get(getUrl, {
-          params: {
-            key,
-            action: `report${type}`,
-            id,
-            json: 1,
-          },
-        });
-        return data;
-      } catch(e) {
+    return id => axios
+      .get(getUrl, {
+        params: {
+          key,
+          action: `report${type}`,
+          id,
+          json: 1,
+        },
+      })
+      .then(e => e.data)
+      .catch(e => {
         if(e.message === 'Request failed with status code 500') {
           return { status: 1, request: 'OK_REPORT_RECORDED' };
         }
         throw e;
-      }
-    };
+      });
   };
 
   this.reportBad = makeReport('bad');

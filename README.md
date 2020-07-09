@@ -8,7 +8,7 @@
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
-Full documentation you can find on official sites: [RuCaptcha][RuCaptchaAPI], [2Captcha][2CaptchaAPI].
+Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI], [2Captcha Docs][2CaptchaAPI].
 
 ## Installation
 `rucaptcha-2captcha` is available via npm:
@@ -22,10 +22,10 @@ $ npm i rucaptcha-2captcha@1.0.4
 
 new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 
-| Parameter | Type   | Required | Description
-|-----------|--------|----------|-
-| apiKey    | string | true     | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings])
-| type      | string | false    | Case insensitive **'2captcha'** for [2Captcha].<br>Any other for [RuCaptcha].
+| Name   | Type   | Required | Description
+|--------|--------|----------|-
+| apiKey | string | yes      | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings]).
+| type   | string | no       | Case insensitive **'2captcha'** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
 ```js
@@ -43,11 +43,11 @@ const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
 
 captchaSolver.send(params) → `Promise<captcha_id>`
 
-| Parameter | Type   | Required | Description
-|-----------|--------|----------|-
-| params    | object | true     | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `key`, `json` and `soft_id`.
+| Name   | Type   | Required | Description
+|--------|--------|----------|-
+| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `key`, `json` and `soft_id`.
 
-Use this method to send captcha for solve.
+Use this method to send captcha for solving.
 
 #### Example
 ```js
@@ -66,10 +66,10 @@ const id = await captchaSolver.send({
 
 captchaSolver.sendFile(filePath[, params]) → `Promise<captcha_id>`
 
-| Parameter | Type   | Required | Description
-|-----------|--------|----------|-
-| filePath  | string | true     | Path to captcha image on your file system
-| params    | object | false    | Object with params from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `method`, `file`, `body`, `key`, `json` and `soft_id`.
+| Name     | Type   | Required | Description
+|----------|--------|----------|-
+| filePath | string | yes      | Path to captcha image on your file system.
+| params   | object | no       | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `method`, `file`, `body`, `key`, `json` and `soft_id`.
 
 Use this method to send captcha as image from your local file system.
 
@@ -92,11 +92,11 @@ const id = await captchaSolver.sendFile('./captcha.jpg', {
 
 captchaSolver.get(id | ids | strIds) → `Promise<captcha_token>` | `Promise<Array<captcha_token>>`
 
-| Parameter | Type      | Required   | Description
-|-----------|-----------|------------|-
-| id        | string    | one of all | Id of sent captcha, which you get from send-method
-| ids       | Array<id> | one of all | Array of captcha ids
-| strIds    | string    | one of all | String of comma separated captcha ids
+| Name   | Type      | Required   | Description
+|--------|-----------|------------|-
+| id     | string    | one of all | Id of sent captcha, which you get from send-method.
+| ids    | Array<id> | one of all | Array of captcha ids.
+| strIds | string    | one of all | String of comma-separated captcha ids.
 
 Method for getting captcha solutions.\
 Returns promise which resolves as soon as all captchas by provided ids will be solved on service.
@@ -121,9 +121,9 @@ Returns promise which resolves as soon as all captchas by provided ids will be s
 captchaSolver.reportGood(id) → `Promise<Object>`\
 captchaSolver.reportBad(id) → `Promise<Object>`
 
-| Parameter | Type   | Required | Description
-|-----------|--------|----------|-
-| id        | string | true     | Id of sent captcha, which you get from send-method
+| Name | Type   | Required | Description
+|------|--------|----------|-
+| id   | string | yes      | Id of sent captcha, which you get from send-method.
 
 Use these methods for reporting captcha results.
 
@@ -143,9 +143,9 @@ Returns some info that was sent from server.
 
 captchaSolver.get2(id) → `Promise<Object>`
 
-| Parameter | Type   | Required | Description
-|-----------|--------|----------|-
-| id        | string | true     | Id of sent captcha, which you get from send-method
+| Name | Type   | Required | Description
+|------|--------|----------|-
+| id   | string | yes      | Id of sent captcha, which you get from send-method.
 
 Use captchaSolver.get2 method for getting captcha answer with its cost price.
 
@@ -171,7 +171,7 @@ Note: don't use it too often because it decreases your API query limit.
 
 ---
 
-More info you can find in documentation ([RuCaptcha][RuCaptchaAPI] | [2Captcha][2CaptchaAPI]).
+More info you can find in official documentation: [RuCaptcha Docs][RuCaptchaAPI], [2Captcha Docs][2CaptchaAPI].
 
 ## Testing
 No testing functionality provided.
