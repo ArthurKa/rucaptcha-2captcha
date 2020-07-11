@@ -1,6 +1,6 @@
 {
   "name": "rucaptcha-2captcha",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Operates with RuCaptcha.com and 2Captcha.com services conveniently.",
   "main": "ruCaptcha2Captcha.js",
   "scripts": {},
@@ -23,18 +23,23 @@
     "recaptchav3",
     "geetest",
     "hcaptcha",
+    "clickcaptcha",
     "capy-puzzle",
     "rotatecaptcha",
     "funcaptcha",
     "keycaptcha"
   ],
-  "author": "ArthurKa",
+  "author": {
+    "name": "ArthurKa",
+    "email": "arthur.katruk@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ArthurKa/rucaptcha-2captcha/issues"
   },
   "homepage": "https://github.com/ArthurKa/rucaptcha-2captcha#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3"
   }
 }

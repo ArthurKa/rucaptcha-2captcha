@@ -15,7 +15,7 @@ new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
 | apiKey | string | yes      | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings]).
-| type   | string | no       | Case insensitive **'2captcha'** for [2Captcha].<br>Any other for [RuCaptcha].
+| type   | string | no       | Provide string or number **2** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
 ```js
@@ -24,18 +24,18 @@ const RuCaptcha2Captcha = require('.');
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>);
 
 // or for operating with 2Captcha.com
-const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, '2captcha');
+const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, 2);
 
 ```
 
 ### captchaSolver.send method
 #### Synopsis
 
-captchaSolver.send(params) → `Promise<Object { request: String<captcha_id> }>`
+captchaSolver.send(params) → `Promise<captcha_id>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
-| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `key`, `json` and `soft_id`.
+| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Of properties `url`, `method`, `file` and `body`<br>use only one of the next combinations:<br>&nbsp;• `url`<br>&nbsp;• `method` + `file`<br>&nbsp;• `method` + `body`
 
 Use this method to send captcha for solving.
 
@@ -44,37 +44,28 @@ Use this method to send captcha for solving.
 const id = await captchaSolver.send({
   method: 'base64',
   body: <base64_image_body>,
-  // any other parameter from documentation
-  // except: key, json and soft_id
+  // any other parameter from documentation,
+  // except: file, key, json and soft_id
 });
 
 // id: '4503599627'
 ```
-
-### captchaSolver.sendFile custom method over captchaSolver.send
-#### Synopsis
-
-captchaSolver.sendFile(filePath[, params]) → `Promise<Object { request: String<captcha_id> }>`
-
-| Name     | Type   | Required | Description
-|----------|--------|----------|-
-| filePath | string | yes      | Path to captcha image on your file system.
-| params   | object | no       | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]).<br>Except: `method`, `file`, `body`, `key`, `json` and `soft_id`.
-
-Use this method to send captcha as image from your local file system.
-
-#### Example
+#### Sending image from your local file system or the Internet
 ```js
-const id = await captchaSolver.sendFile('./captcha.jpg', {
-  min_len: 6,
-  max_len: 6,
-  regsense: 1,
-  numeric: 4,
-  // any other parameter from documentation
+const id = await captchaSolver.send({
+  // url: './captchas/W68HP.gif',
+  url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
+  // any other parameter from documentation,
   // except: method, file, body, key, json and soft_id
+  // for example
+  regsense: 1,  // for case-sensitive
+  numeric: 4,   // for both numbers and letters
+  min_len: 5,
+  max_len: 5,   // for exact 5 symbols
+  language: 2,  // for Roman alphabet
 });
 
-// id: '4503599627'
+// id: '4503599672'
 ```
 
 ### captchaSolver.get method
@@ -125,30 +116,76 @@ Returns some info that was sent from server.
   const result = await captchaSolver.reportGood(id);
   // or
   const result = await captchaSolver.reportBad(id);
+
   // result: { status: 1, request: 'OK_REPORT_RECORDED' }
 ```
 
-### captchaSolver.get2 method
+### captchaSolver.solve method
 #### Synopsis
 
-captchaSolver.get2(id) → `Promise<Object>`
+captchaSolver.solve(params) → `Promise<Object { token, tokenIsGood, tokenIsBad }>`
+
+##### Request
+| Name   | Type   | Required | Description
+|--------|--------|----------|-
+| params | object | yes      | The same properties as for [captchaSolver.send](#captchasolversend-method) method.
+
+##### Response
+| Name        | Type     | Description
+|-------------|----------|-
+| token       | string   | Solved captcha token.
+| tokenIsGood | function | Callback function for reporting received token is correct.
+| tokenIsBad  | function | Callback function for reporting received token is wrong.
+
+captchaSolver.solve method is nothing more but convenient bundle of next methods:
+ - captchaSolver.send
+ - captchaSolver.get
+ - captchaSolver.reportGood
+ - captchaSolver.reportBad
+
+You still can use them on your own.
+
+#### Example
+```js
+  const { token, tokenIsGood, tokenIsBad } = await captchaSolver.solve({
+    url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
+    regsense: 1,  // for case-sensitive
+    numeric: 4,   // for both numbers and letters
+    min_len: 5,
+    max_len: 5,   // for exact 5 symbols
+    language: 2,  // for Roman alphabet
+  });
+
+  if(token === 'W68HP') {
+    console.log('Everything is just fine.');
+    await tokenIsGood();
+  } else {
+    console.log('Captcha was solved incorrect:', token);
+    await tokenIsBad();
+  }
+```
+
+### captchaSolver.getWithPrice method
+#### Synopsis
+
+captchaSolver.getWithPrice(id) → `Promise<Object>`
 
 | Name | Type   | Required | Description
 |------|--------|----------|-
 | id   | string | yes      | Id of sent captcha, which you get from send-method.
 
-Use captchaSolver.get2 method for getting captcha answer with its cost price.
+Use captchaSolver.getWithPrice method for getting captcha answer with its cost price.
 
 #### Example
 ```js
-  const info = await captchaSolver.get2(id);
-  // info: { request: '6p6pck', price: '0.034' }
+  const info = await captchaSolver.getWithPrice(id);
+  // info: { token: '6p6pck', price: '0.034' }
 ```
 
 ### captchaSolver.getBalance method
 #### Synopsis
 
-captchaSolver.captchaSolver.getBalance() → `Promise<number>`
+captchaSolver.getBalance() → `Promise<number>`
 
 Use for getting your account balance.\
 Note: don't use it too often because it decreases your API query limit.
@@ -157,6 +194,52 @@ Note: don't use it too often because it decreases your API query limit.
 ```js
   const balance = await captchaSolver.getBalance();
   // balance: 50.034
+```
+
+### captchaSolver.getPrices method
+#### Synopsis
+
+captchaSolver.getPrices() → `Promise<Object>`
+
+Use for getting actual service prices.\
+Note: this method does not decrease your API query limit.
+
+#### Example
+```js
+  const prices = await captchaSolver.getPrices();
+
+  // Warning! That is current actual prices. Prices and categories can change!
+  /*
+  prices in RUR for RuCaptcha service: {
+    'Обычная капча': 0.023,
+    'Текстовая капча': 0.023,
+    'ReCaptcha V2': 0.16,
+    'ReCaptcha V3': 0.16,
+    GeeTest: 0.16,
+    hCaptcha: 0.16,
+    'Capy Puzzle': 0.16,
+    'ReCaptcha V2 (старый метод)': 0.07,
+    ClickCaptcha: 0.07,
+    RotateCaptcha: 0.035,
+    'FunCaptcha с токеном': 0.16,
+    KeyCaptcha: 0.16
+  }
+  prices in USD for 2Captcha service: {
+    'Normal Captcha': 0.00079,
+    'Text Captcha': 0.00079,
+    'ReCaptcha V2': 0.00299,
+    'ReCaptcha V3': 0.00299,
+    GeeTest: 0.00299,
+    'ReCaptcha V2 (old method)': 0.0012,
+    'Solving ClickCaptcha': 0.0012,
+    RotateCaptcha: 0.0005,
+    FunCaptcha: 0.0005,
+    'FunCaptcha Token Method': 0.00299,
+    KeyCaptcha: 0.00299,
+    hCaptcha: 0.00299,
+    Capy: 0.00299
+  }
+  */
 ```
 
 ---
