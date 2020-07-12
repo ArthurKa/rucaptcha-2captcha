@@ -1,16 +1,15 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.0.0?style=flat-square "All dependencies of rucaptcha-2captcha@2.0.0")](https://libraries.io/npm/rucaptcha-2captcha/2.0.0)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.0.0?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.0.0")](https://snyk.io/test/npm/rucaptcha-2captcha/2.0.0)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.0.1?style=flat-square "All dependencies of rucaptcha-2captcha@2.0.1")](https://libraries.io/npm/rucaptcha-2captcha/2.0.1)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.0.1?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.0.1")](https://snyk.io/test/npm/rucaptcha-2captcha/2.0.1)
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/rucaptcha-2captcha)](https://github.com/ArthurKa/rucaptcha-2captcha/commits/master)
-[![NPM-version](https://img.shields.io/badge/npm-v2.0.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.0.0)
+[![NPM-version](https://img.shields.io/badge/npm-v2.0.1-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.0.1)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
-[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/rucaptcha-2captcha/issues)
+[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/rucaptcha-2captcha/issues)\
+[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.0.1?label=publish 'Publish size of rucaptcha-2captcha@2.0.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.1)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.0.1?label=install 'Install size of rucaptcha-2captcha@2.0.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.1)
+[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.0.1?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.0.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.1)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.0.1?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.0.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.1)
 
-[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.0.0?label=publish 'Publish size of rucaptcha-2captcha@2.0.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.0)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.0.0?label=install 'Install size of rucaptcha-2captcha@2.0.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.0)
-[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.0.0?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.0.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.0)
-[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.0.0?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.0.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.0)
-
-# rucaptcha-2captcha@2.0.0
+# rucaptcha-2captcha@2.0.1
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -19,7 +18,7 @@ Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI
 ## Installation
 `rucaptcha-2captcha` is available via npm:
 ``` bash
-$ npm i rucaptcha-2captcha@2.0.0
+$ npm i rucaptcha-2captcha@2.0.1
 ```
 
 ## Usage
@@ -28,10 +27,10 @@ $ npm i rucaptcha-2captcha@2.0.0
 
 new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 
-| Name   | Type   | Required | Description
-|--------|--------|----------|-
-| apiKey | string | yes      | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings]).
-| type   | string | no       | Provide string or number **2** for [2Captcha].<br>Any other for [RuCaptcha].
+| Name   | Type         | Required | Description
+|--------|--------------|----------|-
+| apiKey | string       | yes      | Your account API key from settings ([RuCaptcha][RuCaptchaSettings] \| [2Captcha][2CaptchaSettings]).
+| type   | `2` \| `'2'` | no       | Provide string or number **2** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
 ```js
@@ -51,7 +50,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
-| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Of properties `url`, `method`, `file` and `body`<br>use only one of the next combinations:<br>&nbsp;• `url`<br>&nbsp;• `method` + `file`<br>&nbsp;• `method` + `body`
+| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Of properties `url`, `method`, `file` and `body`<br>use only one of the next combinations:<br>&nbsp;• single `url`<br>&nbsp;• `method` + `body`<br>&nbsp;• `method` + `file`
 
 Use this method to send captcha for solving.
 
@@ -77,7 +76,7 @@ const id = await captchaSolver.send({
   regsense: 1,  // for case-sensitive
   numeric: 4,   // for both numbers and letters
   min_len: 5,
-  max_len: 5,   // for exact 5 symbols
+  max_len: 5,   // for exactly 5 symbols
   language: 2,  // for Roman alphabet
 });
 
@@ -91,7 +90,7 @@ captchaSolver.get(id | ids | strIds) → `Promise<captcha_token>` | `Promise<Arr
 
 | Name   | Type      | Required   | Description
 |--------|-----------|------------|-
-| id     | string    | one of all | Id of sent captcha, which you get from send-method.
+| id     | string    | one of all | Id of sent captcha via [send-method](#captchasolversend-method).
 | ids    | Array<id> | one of all | Array of captcha ids.
 | strIds | string    | one of all | String of comma-separated captcha ids.
 
@@ -100,16 +99,16 @@ Returns promise which resolves as soon as all captchas by provided ids will be s
 
 #### Example
 ```js
-  const token = await captchaSolver.get(id);
-  // token: 'pgh3Ds'
+const token = await captchaSolver.get(id);
+// token: 'pgh3Ds'
 
-  // or
-  const tokens = await captchaSolver.get([id1, id2, ...]);
-  // tokens: ['3kK3gS', 'q5ZZpt', ...]
+// or
+const tokens = await captchaSolver.get([id1, id2, ...]);
+// tokens: ['3kK3gS', 'q5ZZpt', ...]
 
-  // or
-  const tokens = await captchaSolver.get('<id1>,<id2>,...');
-  // tokens: ['3kK3gS', 'q5ZZpt', ...]
+// or
+const tokens = await captchaSolver.get('<id1>,<id2>,...');
+// tokens: ['3kK3gS', 'q5ZZpt', ...]
 ```
 
 ### Solution reporting methods
@@ -120,7 +119,7 @@ captchaSolver.reportBad(id) → `Promise<Object>`
 
 | Name | Type   | Required | Description
 |------|--------|----------|-
-| id   | string | yes      | Id of sent captcha, which you get from send-method.
+| id   | string | yes      | Id of sent captcha via [send-method](#captchasolversend-method).
 
 Use these methods for reporting captcha results.
 
@@ -129,11 +128,11 @@ Returns some info that was sent from server.
 
 #### Example
 ```js
-  const result = await captchaSolver.reportGood(id);
-  // or
-  const result = await captchaSolver.reportBad(id);
+const result = await captchaSolver.reportGood(id);
+// or
+const result = await captchaSolver.reportBad(id);
 
-  // result: { status: 1, request: 'OK_REPORT_RECORDED' }
+// result: { status: 1, request: 'OK_REPORT_RECORDED' }
 ```
 
 ### captchaSolver.solve method
@@ -150,35 +149,35 @@ captchaSolver.solve(params) → `Promise<Object { token, tokenIsGood, tokenIsBad
 | Name        | Type     | Description
 |-------------|----------|-
 | token       | string   | Solved captcha token.
-| tokenIsGood | function | Callback function for reporting received token is correct.
-| tokenIsBad  | function | Callback function for reporting received token is wrong.
+| tokenIsGood | function | Call it to report received token is correct.
+| tokenIsBad  | function | Call it to report received token is wrong.
 
-captchaSolver.solve method is nothing more but convenient bundle of next methods:
- - captchaSolver.send
- - captchaSolver.get
- - captchaSolver.reportGood
- - captchaSolver.reportBad
+captchaSolver.solve method is nothing more but convenient bundle of the next methods:
+ - [captchaSolver.send](#captchasolversend-method)
+ - [captchaSolver.get](#captchasolverget-method)
+ - [captchaSolver.reportGood](#solution-reporting-methods)
+ - [captchaSolver.reportBad](#solution-reporting-methods)
 
 You still can use them on your own.
 
 #### Example
 ```js
-  const { token, tokenIsGood, tokenIsBad } = await captchaSolver.solve({
-    url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
-    regsense: 1,  // for case-sensitive
-    numeric: 4,   // for both numbers and letters
-    min_len: 5,
-    max_len: 5,   // for exact 5 symbols
-    language: 2,  // for Roman alphabet
-  });
+const { token, tokenIsGood, tokenIsBad } = await captchaSolver.solve({
+  url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
+  regsense: 1,  // for case-sensitive
+  numeric: 4,   // for both numbers and letters
+  min_len: 5,
+  max_len: 5,   // for exactly 5 symbols
+  language: 2,  // for Roman alphabet
+});
 
-  if(token === 'W68HP') {
-    console.log('Everything is just fine.');
-    await tokenIsGood();
-  } else {
-    console.log('Captcha was solved incorrect:', token);
-    await tokenIsBad();
-  }
+if(token === 'W68HP') {
+  console.log('Everything is just fine.');
+  await tokenIsGood();
+} else {
+  console.log('Captcha was solved incorrect:', token);
+  await tokenIsBad();
+}
 ```
 
 ### captchaSolver.getWithPrice method
@@ -188,14 +187,14 @@ captchaSolver.getWithPrice(id) → `Promise<Object>`
 
 | Name | Type   | Required | Description
 |------|--------|----------|-
-| id   | string | yes      | Id of sent captcha, which you get from send-method.
+| id   | string | yes      | Id of sent captcha via [send-method](#captchasolversend-method).
 
 Use captchaSolver.getWithPrice method for getting captcha answer with its cost price.
 
 #### Example
 ```js
-  const info = await captchaSolver.getWithPrice(id);
-  // info: { token: '6p6pck', price: '0.034' }
+const info = await captchaSolver.getWithPrice(id);
+// info: { token: '6p6pck', price: '0.034' }
 ```
 
 ### captchaSolver.getBalance method
@@ -208,8 +207,8 @@ Note: don't use it too often because it decreases your API query limit.
 
 #### Example
 ```js
-  const balance = await captchaSolver.getBalance();
-  // balance: 50.034
+const balance = await captchaSolver.getBalance();
+// balance: 50.034
 ```
 
 ### captchaSolver.getPrices method
@@ -222,40 +221,40 @@ Note: this method does not decrease your API query limit.
 
 #### Example
 ```js
-  const prices = await captchaSolver.getPrices();
+const prices = await captchaSolver.getPrices();
 
-  // Warning! That is current actual prices. Prices and categories can change!
-  /*
-  prices in RUR for RuCaptcha service: {
-    'Обычная капча': 0.023,
-    'Текстовая капча': 0.023,
-    'ReCaptcha V2': 0.16,
-    'ReCaptcha V3': 0.16,
-    GeeTest: 0.16,
-    hCaptcha: 0.16,
-    'Capy Puzzle': 0.16,
-    'ReCaptcha V2 (старый метод)': 0.07,
-    ClickCaptcha: 0.07,
-    RotateCaptcha: 0.035,
-    'FunCaptcha с токеном': 0.16,
-    KeyCaptcha: 0.16
-  }
-  prices in USD for 2Captcha service: {
-    'Normal Captcha': 0.00079,
-    'Text Captcha': 0.00079,
-    'ReCaptcha V2': 0.00299,
-    'ReCaptcha V3': 0.00299,
-    GeeTest: 0.00299,
-    'ReCaptcha V2 (old method)': 0.0012,
-    'Solving ClickCaptcha': 0.0012,
-    RotateCaptcha: 0.0005,
-    FunCaptcha: 0.0005,
-    'FunCaptcha Token Method': 0.00299,
-    KeyCaptcha: 0.00299,
-    hCaptcha: 0.00299,
-    Capy: 0.00299
-  }
-  */
+// Warning! That is current actual prices. Prices and categories can change!
+/*
+prices in RUR for RuCaptcha service: {
+  'Обычная капча': 0.023,
+  'Текстовая капча': 0.023,
+  'ReCaptcha V2': 0.16,
+  'ReCaptcha V3': 0.16,
+  GeeTest: 0.16,
+  hCaptcha: 0.16,
+  'Capy Puzzle': 0.16,
+  'ReCaptcha V2 (старый метод)': 0.07,
+  ClickCaptcha: 0.07,
+  RotateCaptcha: 0.035,
+  'FunCaptcha с токеном': 0.16,
+  KeyCaptcha: 0.16
+}
+prices in USD for 2Captcha service: {
+  'Normal Captcha': 0.00079,
+  'Text Captcha': 0.00079,
+  'ReCaptcha V2': 0.00299,
+  'ReCaptcha V3': 0.00299,
+  GeeTest: 0.00299,
+  'ReCaptcha V2 (old method)': 0.0012,
+  'Solving ClickCaptcha': 0.0012,
+  RotateCaptcha: 0.0005,
+  FunCaptcha: 0.0005,
+  'FunCaptcha Token Method': 0.00299,
+  KeyCaptcha: 0.00299,
+  hCaptcha: 0.00299,
+  Capy: 0.00299
+}
+*/
 ```
 
 ---
