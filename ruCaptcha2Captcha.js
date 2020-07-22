@@ -173,7 +173,8 @@ function RuCaptcha2Captcha(key, twoCaptcha = null) {
     const [normalPrice, otherPrices] = await Promise.all([
       axios.get(priceUrls.normal).then(({ data }) => {
         const $ = cheerio.load(data, { decodeEntities: false });
-        return +($($('#market-price').toArray()[0]).text() / 1000).toFixed(7);
+        const price = $.text().match(/[i$] ?([\d.]+)/);
+        return price && +(price[1] / 1000).toFixed(7) || NaN;
       }),
       axios.get(priceUrls.all).then(({ data }) => {
         const $ = cheerio.load(data, { decodeEntities: false });
@@ -186,7 +187,7 @@ function RuCaptcha2Captcha(key, twoCaptcha = null) {
             return e;
           });
 
-          const p = +($(price).text().replace(/\$/g, '') / 1000).toFixed(7);
+          const p = +($(price).text().replace(/\$/g, '') / 1000).toFixed(7) || NaN;
           for(const type of types) {
             const t = $(type).text().trim();
             if(isNaN(p)) {

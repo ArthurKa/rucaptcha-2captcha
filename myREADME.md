@@ -35,7 +35,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
-| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Of properties `url`, `method`, `file` and `body`<br>use only one of the next combinations:<br>&nbsp;• single `url`<br>&nbsp;• `method` + `body`<br>&nbsp;• `method` + `file`
+| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Among these properties of `url`, `method`, `file` and `body`<br>can be used only the next combinations:<br>&nbsp;• single `url`<br>&nbsp;• `method` + `body`<br>&nbsp;• `method` + `file`
 
 Use this method to send captcha for solving.
 

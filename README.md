@@ -1,15 +1,15 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.0.1?style=flat-square "All dependencies of rucaptcha-2captcha@2.0.1")](https://libraries.io/npm/rucaptcha-2captcha/2.0.1)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.0.1?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.0.1")](https://snyk.io/test/npm/rucaptcha-2captcha/2.0.1)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.0.2?style=flat-square "All dependencies of rucaptcha-2captcha@2.0.2")](https://libraries.io/npm/rucaptcha-2captcha/2.0.2)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.0.2?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.0.2")](https://snyk.io/test/npm/rucaptcha-2captcha/2.0.2)
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/rucaptcha-2captcha)](https://github.com/ArthurKa/rucaptcha-2captcha/commits/master)
-[![NPM-version](https://img.shields.io/badge/npm-v2.0.1-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.0.1)
+[![NPM-version](https://img.shields.io/badge/npm-v2.0.2-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.0.2)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 [![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/rucaptcha-2captcha/issues)\
-[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.0.1?label=publish 'Publish size of rucaptcha-2captcha@2.0.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.1)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.0.1?label=install 'Install size of rucaptcha-2captcha@2.0.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.1)
-[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.0.1?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.0.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.1)
-[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.0.1?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.0.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.1)
+[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.0.2?label=publish 'Publish size of rucaptcha-2captcha@2.0.2')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.2)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.0.2?label=install 'Install size of rucaptcha-2captcha@2.0.2')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.2)
+[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.0.2?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.0.2")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.2)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.0.2?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.0.2")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.2)
 
-# rucaptcha-2captcha@2.0.1
+# rucaptcha-2captcha@2.0.2
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -18,7 +18,7 @@ Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI
 ## Installation
 `rucaptcha-2captcha` is available via npm:
 ``` bash
-$ npm i rucaptcha-2captcha@2.0.1
+$ npm i rucaptcha-2captcha@2.0.2
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 
 | Name   | Type   | Required | Description
 |--------|--------|----------|-
-| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Of properties `url`, `method`, `file` and `body`<br>use only one of the next combinations:<br>&nbsp;• single `url`<br>&nbsp;• `method` + `body`<br>&nbsp;• `method` + `file`
+| params | object | yes      | Object with properties from documentation ([RuCaptcha][RuCaptchaParams] \| [2Captcha][2CaptchaParams]),<br>except: `key`, `json` and `soft_id`.<br>Among these properties of `url`, `method`, `file` and `body`<br>can be used only the next combinations:<br>&nbsp;• single `url`<br>&nbsp;• `method` + `body`<br>&nbsp;• `method` + `file`
 
 Use this method to send captcha for solving.
 
