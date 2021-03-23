@@ -1,9 +1,18 @@
 {
   "name": "rucaptcha-2captcha",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Operates with RuCaptcha.com and 2Captcha.com services conveniently.",
-  "main": "ruCaptcha2Captcha.js",
-  "scripts": {},
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build:clean": "rm -rf build/*",
+    "ts-compile": "tsc --declaration",
+    "my-compile": "node ../compile.js",
+    "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
+    "publish:prepare": "mkdir -p ./build/build && mv ./build/* ./build/build; cp -r ./package* ./README.md ./build",
+    "pu": "npm pu ./build",
+    "my-publish": "npm run publish:prepare && npm run pu"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArthurKa/rucaptcha-2captcha.git"
@@ -39,7 +48,11 @@
   },
   "homepage": "https://github.com/ArthurKa/rucaptcha-2captcha#readme",
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
   }
 }

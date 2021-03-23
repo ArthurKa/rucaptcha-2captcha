@@ -1,15 +1,15 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.0.2?style=flat-square "All dependencies of rucaptcha-2captcha@2.0.2")](https://libraries.io/npm/rucaptcha-2captcha/2.0.2)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.0.2?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.0.2")](https://snyk.io/test/npm/rucaptcha-2captcha/2.0.2)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.1.0?style=flat-square "All dependencies of rucaptcha-2captcha@2.1.0")](https://libraries.io/npm/rucaptcha-2captcha/2.1.0)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.1.0?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.1.0")](https://snyk.io/test/npm/rucaptcha-2captcha/2.1.0)
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/rucaptcha-2captcha)](https://github.com/ArthurKa/rucaptcha-2captcha/commits/master)
-[![NPM-version](https://img.shields.io/badge/npm-v2.0.2-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.0.2)
+[![NPM-version](https://img.shields.io/badge/npm-v2.1.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.1.0)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 [![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/rucaptcha-2captcha/issues)\
-[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.0.2?label=publish 'Publish size of rucaptcha-2captcha@2.0.2')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.2)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.0.2?label=install 'Install size of rucaptcha-2captcha@2.0.2')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.0.2)
-[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.0.2?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.0.2")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.2)
-[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.0.2?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.0.2")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.0.2)
+[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.1.0?label=publish 'Publish size of rucaptcha-2captcha@2.1.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.1.0)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.1.0?label=install 'Install size of rucaptcha-2captcha@2.1.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.1.0)
+[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.1.0?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.1.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.1.0)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.1.0?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.1.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.1.0)
 
-# rucaptcha-2captcha@2.0.2
+# rucaptcha-2captcha@2.1.0
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -17,8 +17,8 @@ Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI
 
 ## Installation
 `rucaptcha-2captcha` is available via npm:
-``` bash
-$ npm i rucaptcha-2captcha@2.0.2
+```bash
+$ npm i rucaptcha-2captcha@2.1.0
 ```
 
 ## Usage
@@ -33,14 +33,13 @@ new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 | type   | `2` \| `'2'` | no       | Provide string or number **2** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
-```js
-const RuCaptcha2Captcha = require('rucaptcha-2captcha');
+```ts
+import RuCaptcha2Captcha from 'rucaptcha-2captcha';
 
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>);
 
 // or for operating with 2Captcha.com
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, 2);
-
 ```
 
 ### captchaSolver.send method
@@ -55,7 +54,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 Use this method to send captcha for solving.
 
 #### Example
-```js
+```ts
 const id = await captchaSolver.send({
   method: 'base64',
   body: <base64_image_body>,
@@ -66,7 +65,7 @@ const id = await captchaSolver.send({
 // id: '4503599627'
 ```
 #### Sending image from your local file system or the Internet
-```js
+```ts
 const id = await captchaSolver.send({
   // url: './captchas/W68HP.gif',
   url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
@@ -75,7 +74,7 @@ const id = await captchaSolver.send({
   // for example
   regsense: 1,  // for case-sensitive
   numeric: 4,   // for both numbers and letters
-  min_len: 5,
+  min_len: 5,   //
   max_len: 5,   // for exactly 5 symbols
   language: 2,  // for Roman alphabet
 });
@@ -98,17 +97,19 @@ Method for getting captcha solutions.\
 Returns promise which resolves as soon as all captchas by provided ids will be solved on service.
 
 #### Example
-```js
-const token = await captchaSolver.get(id);
-// token: 'pgh3Ds'
+```ts
+import { ArrayLikeString, isArrayLikeString } from 'rucaptcha-2captcha/src/types';
 
-// or
-const tokens = await captchaSolver.get([id1, id2, ...]);
-// tokens: ['3kK3gS', 'q5ZZpt', ...]
+const id = '<id1>';
+const id2 = '<id2>';
+const ids = '<id1>,<id2>';
 
-// or
-const tokens = await captchaSolver.get('<id1>,<id2>,...');
-// tokens: ['3kK3gS', 'q5ZZpt', ...]
+const token = await captchaSolver.get(id); // 'pgh3Ds'
+const tokens = await captchaSolver.get([id, id2]); // ['pgh3Ds', 'q5ZZpt']
+const tokens2 = await captchaSolver.get(ids as ArrayLikeString); // ['pgh3Ds', 'q5ZZpt']
+if(isArrayLikeString(ids)) {
+  const tokens = await captchaSolver.get(ids); // ['pgh3Ds', 'q5ZZpt']
+}
 ```
 
 ### Solution reporting methods
@@ -127,7 +128,8 @@ Use these methods for reporting captcha results.
 Returns some info that was sent from server.
 
 #### Example
-```js
+```ts
+const id = '<id1>';
 const result = await captchaSolver.reportGood(id);
 // or
 const result = await captchaSolver.reportBad(id);
@@ -161,7 +163,7 @@ captchaSolver.solve method is nothing more but convenient bundle of the next met
 You still can use them on your own.
 
 #### Example
-```js
+```ts
 const { token, tokenIsGood, tokenIsBad } = await captchaSolver.solve({
   url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
   regsense: 1,  // for case-sensitive
@@ -192,7 +194,7 @@ captchaSolver.getWithPrice(id) → `Promise<Object>`
 Use captchaSolver.getWithPrice method for getting captcha answer with its cost price.
 
 #### Example
-```js
+```ts
 const info = await captchaSolver.getWithPrice(id);
 // info: { token: '6p6pck', price: '0.034' }
 ```
@@ -206,7 +208,7 @@ Use for getting your account balance.\
 Note: don't use it too often because it decreases your API query limit.
 
 #### Example
-```js
+```ts
 const balance = await captchaSolver.getBalance();
 // balance: 50.034
 ```
@@ -220,10 +222,10 @@ Use for getting actual service prices.\
 Note: this method does not decrease your API query limit.
 
 #### Example
-```js
+```ts
 const prices = await captchaSolver.getPrices();
 
-// Warning! That is current actual prices. Prices and categories can change!
+// Warning! That is current actual prices. Prices and categories may change.
 /*
 prices in RUR for RuCaptcha service: {
   'Обычная капча': 0.023,
@@ -262,7 +264,7 @@ prices in USD for 2Captcha service: {
 More info you can find in official documentation: [RuCaptcha Docs][RuCaptchaAPI], [2Captcha Docs][2CaptchaAPI].
 
 ## Testing
-No testing functionality provided.
+Manually tested by developer. Automated tests are not provided.
 
 ---
 

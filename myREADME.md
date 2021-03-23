@@ -18,14 +18,13 @@ new RuCaptcha2Captcha(apiKey[, type]) → `captchaSolver` object
 | type   | `2` \| `'2'` | no       | Provide string or number **2** for [2Captcha].<br>Any other for [RuCaptcha].
 
 #### Example
-```js
-const RuCaptcha2Captcha = require('.');
+```ts
+import RuCaptcha2Captcha from './rucaptcha-2captcha/src';
 
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>);
 
 // or for operating with 2Captcha.com
 const captchaSolver = new RuCaptcha2Captcha(<YOUR_API_KEY>, 2);
-
 ```
 
 ### <captchaSolver.send method|#send>
@@ -40,7 +39,7 @@ captchaSolver.send(params) → `Promise<captcha_id>`
 Use this method to send captcha for solving.
 
 #### Example
-```js
+```ts
 const id = await captchaSolver.send({
   method: 'base64',
   body: <base64_image_body>,
@@ -51,7 +50,7 @@ const id = await captchaSolver.send({
 // id: '4503599627'
 ```
 #### Sending image from your local file system or the Internet
-```js
+```ts
 const id = await captchaSolver.send({
   // url: './captchas/W68HP.gif',
   url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
@@ -60,7 +59,7 @@ const id = await captchaSolver.send({
   // for example
   regsense: 1,  // for case-sensitive
   numeric: 4,   // for both numbers and letters
-  min_len: 5,
+  min_len: 5,   //
   max_len: 5,   // for exactly 5 symbols
   language: 2,  // for Roman alphabet
 });
@@ -83,17 +82,19 @@ Method for getting captcha solutions.\
 Returns promise which resolves as soon as all captchas by provided ids will be solved on service.
 
 #### Example
-```js
-const token = await captchaSolver.get(id);
-// token: 'pgh3Ds'
+```ts
+import { ArrayLikeString, isArrayLikeString } from './rucaptcha-2captcha/src/types';
 
-// or
-const tokens = await captchaSolver.get([id1, id2, ...]);
-// tokens: ['3kK3gS', 'q5ZZpt', ...]
+const id = '<id1>';
+const id2 = '<id2>';
+const ids = '<id1>,<id2>';
 
-// or
-const tokens = await captchaSolver.get('<id1>,<id2>,...');
-// tokens: ['3kK3gS', 'q5ZZpt', ...]
+const token = await captchaSolver.get(id); // 'pgh3Ds'
+const tokens = await captchaSolver.get([id, id2]); // ['pgh3Ds', 'q5ZZpt']
+const tokens2 = await captchaSolver.get(ids as ArrayLikeString); // ['pgh3Ds', 'q5ZZpt']
+if(isArrayLikeString(ids)) {
+  const tokens = await captchaSolver.get(ids); // ['pgh3Ds', 'q5ZZpt']
+}
 ```
 
 ### <Solution reporting methods|#reports>
@@ -112,7 +113,8 @@ Use these methods for reporting captcha results.
 Returns some info that was sent from server.
 
 #### Example
-```js
+```ts
+const id = '<id1>';
 const result = await captchaSolver.reportGood(id);
 // or
 const result = await captchaSolver.reportBad(id);
@@ -146,7 +148,7 @@ captchaSolver.solve method is nothing more but convenient bundle of the next met
 You still can use them on your own.
 
 #### Example
-```js
+```ts
 const { token, tokenIsGood, tokenIsBad } = await captchaSolver.solve({
   url: 'https://user-images.githubusercontent.com/16370704/87232185-aad0b680-c3c5-11ea-8cfc-b769bba631d4.gif',
   regsense: 1,  // for case-sensitive
@@ -177,7 +179,7 @@ captchaSolver.getWithPrice(id) → `Promise<Object>`
 Use captchaSolver.getWithPrice method for getting captcha answer with its cost price.
 
 #### Example
-```js
+```ts
 const info = await captchaSolver.getWithPrice(id);
 // info: { token: '6p6pck', price: '0.034' }
 ```
@@ -191,7 +193,7 @@ Use for getting your account balance.\
 Note: don't use it too often because it decreases your API query limit.
 
 #### Example
-```js
+```ts
 const balance = await captchaSolver.getBalance();
 // balance: 50.034
 ```
@@ -205,10 +207,10 @@ Use for getting actual service prices.\
 Note: this method does not decrease your API query limit.
 
 #### Example
-```js
+```ts
 const prices = await captchaSolver.getPrices();
 
-// Warning! That is current actual prices. Prices and categories can change!
+// Warning! That is current actual prices. Prices and categories may change.
 /*
 prices in RUR for RuCaptcha service: {
   'Обычная капча': 0.023,
