@@ -1,5 +1,3 @@
-import { ThenArg } from './typeUtils';
-
 export type Lang = (
   | 'en' | 'ru' | 'es' | 'pt' | 'uk' | 'vi' | 'fr' | 'id' | 'ar' | 'ja' | 'tr' | 'de' | 'zh' | 'fil'
   | 'pl' | 'th' | 'it' | 'nl' | 'sk' | 'bg' | 'ro' | 'hu' | 'ko' | 'cs' | 'az' | 'fa' | 'bn' | 'el'

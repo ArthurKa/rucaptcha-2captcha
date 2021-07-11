@@ -3,7 +3,7 @@
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/rucaptcha-2captcha)](https://github.com/ArthurKa/rucaptcha-2captcha/commits/master)
 [![NPM-version](https://img.shields.io/badge/npm-v2.1.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.1.0)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
-[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "Have any questions? You are always welcome.")](https://github.com/ArthurKa/rucaptcha-2captcha/issues)\
+[![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "GitHub")](https://github.com/ArthurKa)\
 [![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.1.0?label=publish 'Publish size of rucaptcha-2captcha@2.1.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.1.0)
 [![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.1.0?label=install 'Install size of rucaptcha-2captcha@2.1.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.1.0)
 [![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.1.0?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.1.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.1.0)
@@ -16,7 +16,7 @@ Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI], [2Captcha Docs][2CaptchaAPI].
 
 ## Installation
-`rucaptcha-2captcha` is available via npm:
+`rucaptcha-2captcha` is available via NPM:
 ```bash
 $ npm i rucaptcha-2captcha@2.1.0
 ```
@@ -264,7 +264,7 @@ prices in USD for 2Captcha service: {
 More info you can find in official documentation: [RuCaptcha Docs][RuCaptchaAPI], [2Captcha Docs][2CaptchaAPI].
 
 ## Testing
-Manually tested by developer. Automated tests are not provided.
+Manually tested by the developer during development. Automated tests are not provided.
 
 ---
 

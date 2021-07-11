@@ -68,7 +68,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
         let buffer: Buffer;
         try {
           buffer = fs.readFileSync(url);
-        } catch(e) {
+        } catch {
           const { data } = await axios.get(url, { responseType: 'arraybuffer' });
           buffer = Buffer.from(data, 'binary');
         }
@@ -114,6 +114,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
     async get(id: string | string[] | ArrayLikeString) {
       const ids = String(id).split(/\s*,\s*/);
 
+      // eslint-disable-next-line no-constant-condition
       while(1) {
         await Promise.all(ids.map(id => waitings[id]));
 
@@ -130,7 +131,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
 
         const res = data.request.split('|') as [string, ...string[]];
         if(res.every(e => e !== 'CAPCHA_NOT_READY')) {
-          return (Array.isArray(id) || typeof id == 'string' && id.match(/,/) ? res : res[0]) as any;
+          return (Array.isArray(id) || typeof id === 'string' && id.match(/,/) ? res : res[0]) as any;
         }
 
         if(res.length === ids.length) {
@@ -152,7 +153,10 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
     },
 
     async getWithPrice(id) {
+      // eslint-disable-next-line no-param-reassign
       id = String(id);
+
+      // eslint-disable-next-line no-constant-condition
       while(1) {
         await waitings[id];
 
@@ -206,16 +210,17 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
           const $ = cheerio.load(data, { decodeEntities: false });
           const table = $($('.table').toArray().find(e => $(e).text().match(/Type of captcha|Вид капчи/i)));
           return table.find('tr').toArray().slice(1).reduce<Record<string, number>>((obj, e) => {
-            const [types, price] = $(e).find('td').toArray().map((e, i) => {
-              return i ? e : $(e).find('a').toArray();
-            }) as any as [Element[], Element];
+            const [types, price] = $(e).find('td').toArray().map((e, i) => (
+              i ? e : $(e).find('a').toArray()
+            )) as any as [Element[], Element];
 
             const p = +(Number($(price).text().replace(/\$/g, '')) / 1000).toFixed(7) || NaN;
             for(const type of types) {
               const t = $(type).text().trim();
-              if(isNaN(p)) {
+              if(Number.isNaN(p)) {
                 normalNames.push(t);
               } else {
+                // eslint-disable-next-line no-param-reassign
                 obj[t] = p;
               }
             }
