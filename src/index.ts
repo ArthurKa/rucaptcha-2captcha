@@ -246,7 +246,6 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
   };
 
   return res;
-// };
 }
 
-export default (RuCaptcha2Captcha as any as new (...params: Parameters<typeof RuCaptcha2Captcha>) => ReturnType<typeof RuCaptcha2Captcha>);
+export default RuCaptcha2Captcha as any as new (...params: Parameters<typeof RuCaptcha2Captcha>) => ReturnType<typeof RuCaptcha2Captcha>;
