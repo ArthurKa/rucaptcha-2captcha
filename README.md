@@ -1,15 +1,15 @@
-[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.2.0?style=flat-square "All dependencies of rucaptcha-2captcha@2.2.0")](https://libraries.io/npm/rucaptcha-2captcha/2.2.0)
-[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.2.0?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.2.0")](https://snyk.io/test/npm/rucaptcha-2captcha/2.2.0)
+[![All dependencies](https://img.shields.io/librariesio/release/npm/rucaptcha-2captcha/2.2.1?style=flat-square "All dependencies of rucaptcha-2captcha@2.2.1")](https://libraries.io/npm/rucaptcha-2captcha/2.2.1)
+[![Reported vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/rucaptcha-2captcha@2.2.1?style=flat-square "Reported vulnerabilities of rucaptcha-2captcha@2.2.1")](https://snyk.io/test/npm/rucaptcha-2captcha/2.2.1)
 [![Commits](https://flat.badgen.net/github/commits/ArthurKa/rucaptcha-2captcha)](https://github.com/ArthurKa/rucaptcha-2captcha/commits/master)
-[![NPM-version](https://img.shields.io/badge/npm-v2.2.0-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.2.0)
+[![NPM-version](https://img.shields.io/badge/npm-v2.2.1-blue.svg?style=flat-square&&logo=npm "Current NPM-version")](https://www.npmjs.com/package/rucaptcha-2captcha/v/2.2.1)
 [![Total downloads](https://img.shields.io/npm/dt/rucaptcha-2captcha?style=flat-square "Total downloads for all the time")](https://npm-stat.com/charts.html?package=rucaptcha-2captcha)
 [![Developed by](https://img.shields.io/badge/developed_by-ArthurKa-blueviolet.svg?style=flat-square "GitHub")](https://github.com/ArthurKa)\
-[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.2.0?label=publish 'Publish size of rucaptcha-2captcha@2.2.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.2.0)
-[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.2.0?label=install 'Install size of rucaptcha-2captcha@2.2.0')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.2.0)
-[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.2.0?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.2.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.2.0)
-[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.2.0?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.2.0")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.2.0)
+[![Publish size](https://flat.badgen.net/packagephobia/publish/rucaptcha-2captcha@2.2.1?label=publish 'Publish size of rucaptcha-2captcha@2.2.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.2.1)
+[![Install size](https://flat.badgen.net/packagephobia/install/rucaptcha-2captcha@2.2.1?label=install 'Install size of rucaptcha-2captcha@2.2.1')](https://packagephobia.now.sh/result?p=rucaptcha-2captcha@2.2.1)
+[![Minified size](https://img.shields.io/bundlephobia/min/rucaptcha-2captcha@2.2.1?style=flat-square&label=minified "Minified size of rucaptcha-2captcha@2.2.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.2.1)
+[![Minified + gzipped size](https://img.shields.io/bundlephobia/minzip/rucaptcha-2captcha@2.2.1?style=flat-square&label=minzipped "Minified + gzipped size of rucaptcha-2captcha@2.2.1")](https://bundlephobia.com/result?p=rucaptcha-2captcha@2.2.1)
 
-# rucaptcha-2captcha@2.2.0
+# rucaptcha-2captcha@2.2.1
 
 Helps you to operate with [RuCaptcha] or [2Captcha] services conveniently.
 
@@ -18,7 +18,7 @@ Full documentation you can find on official sites: [RuCaptcha Docs][RuCaptchaAPI
 ## Installation
 `rucaptcha-2captcha` is available via NPM:
 ```bash
-$ npm i rucaptcha-2captcha@2.2.0
+$ npm i rucaptcha-2captcha@2.2.1
 ```
 
 ## Usage
