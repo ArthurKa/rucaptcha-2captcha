@@ -68,7 +68,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
         let buffer: Buffer;
         try {
           buffer = fs.readFileSync(url);
-        } catch {
+        } catch(e) {
           const { data } = await axios.get(url, { responseType: 'arraybuffer' });
           buffer = Buffer.from(data, 'binary');
         }
@@ -84,7 +84,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
         key: typeof key;
         json: 1;
         soft_id: 2721;
-      }
+      };
 
       const params = {
         ...Object.fromEntries(Object.entries(p).filter(e => e[1] != null)),
@@ -114,7 +114,6 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
     async get(id: string | string[] | ArrayLikeString) {
       const ids = String(id).split(/\s*,\s*/);
 
-      // eslint-disable-next-line no-constant-condition
       while(1) {
         await Promise.all(ids.map(id => waitings[id]));
 
@@ -156,7 +155,6 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
       // eslint-disable-next-line no-param-reassign
       id = String(id);
 
-      // eslint-disable-next-line no-constant-condition
       while(1) {
         await waitings[id];
 
@@ -187,7 +185,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
     reportBad: makeReport('bad'),
 
     async getBalance() {
-      const { data }: { data: ThenArg<ReturnType<ICaptchaSolver['getBalance']>>; } = await axios.get(getUrl, {
+      const { data }: { data: ThenArg<ReturnType<ICaptchaSolver['getBalance']>> } = await axios.get(getUrl, {
         params: {
           key,
           action: 'getbalance',
@@ -203,7 +201,7 @@ function RuCaptcha2Captcha(key: string, captchaService?: 2 | '2') {
       const [normalPrice, otherPrices] = await Promise.all([
         axios.get(priceUrls.normal).then(({ data }) => {
           const $ = cheerio.load(data, { decodeEntities: false });
-          const price = ($ as any as { text: () => string; }).text().match(/[i$] ?([\d.]+)/) as [string, string] | null;
+          const price = ($ as any as { text: () => string }).text().match(/[i$] ?([\d.]+)/) as [string, string] | null;
           return price && +(Number(price[1]) / 1000).toFixed(7) || NaN;
         }),
         axios.get(priceUrls.all).then(({ data }) => {

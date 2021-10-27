@@ -525,7 +525,7 @@ export type ServiceGet2Response = {
   };
 };
 
-export type ArrayLikeString = string & { badge: 'ArrayLikeString'; };
+export type ArrayLikeString = string & { badge: 'ArrayLikeString' };
 export function isArrayLikeString(e: string): e is ArrayLikeString {
   return e.includes(',');
 }
