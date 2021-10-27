@@ -1,8 +1,8 @@
 import fs from 'fs';
 import axios from 'axios';
 import cheerio from 'cheerio';
+import { ThenArg } from '@arthurka/ts-utils';
 import { ArrayLikeString, ICaptchaSolver, ServiceGet2Response, ServiceGetResponse } from './types';
-import { ThenArg } from './typeUtils';
 
 export { ArrayLikeString };
 export { isArrayLikeString } from './types';
